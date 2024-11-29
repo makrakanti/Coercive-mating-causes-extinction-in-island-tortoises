@@ -1,39 +1,39 @@
 library(popbio)
 
-A<-matrix(0,nrow=20,ncol=20)
+A<-matrix(0,nrow=20,ncol=20)  #create Leslie matrix with 10 age classes and both sexes
 
-# males (model66)
-s0m<-0.32
-s1m<-0.32
-s2m<-0.62
+# males
+s0m<-0.32 #neonate survival
+s1m<-0.32 #1 year old survival
+s2m<-0.52
 s3m<-0.81
 s4m<-0.90
 s5m<-0.95
-s6m<-0.97
-s7m<-0.97
-s8m<-0.97
-s9m<-0.97
-s10m<-0.97
+s6m<-0.95
+s7m<-0.95
+s8m<-0.95
+s9m<-0.91 #9 year old survival
+s10m<-0.91 #adult survival
 
 
-
-# females combination
+# females 
 s0f<-0.32
 s1f<-0.32
-s2f<-0.62
+s2f<-0.52
 s3f<-0.81
 s4f<-0.90
-s5f<-0.85
-s6f<-0.86
-s7f<-0.86
-s8f<-0.86
-s9f<-0.86
-s10f<-0.86
+s5f<-0.95
+s6f<-0.95
+s7f<-0.95
+s8f<-0.95
+s9f<-0.94
+s10f<-0.94
 
 
-sr<-0.92
 
-fecundity<-0.4
+sr<-0.5  #to represent even sex ratio at birth
+
+fecundity<-6.0
 
 
 # survivals
@@ -70,7 +70,7 @@ A[11,20]<-sr*fecundity*s0f
 
 stable.stage(A)
 
-N<-c(rep(0,9),260,rep(0,9),349)
+N<-c(rep(0,9),260,rep(0,9),349) #initial population sizes
 
 Z<-pop.projection(A,N,iterations=100)
 
