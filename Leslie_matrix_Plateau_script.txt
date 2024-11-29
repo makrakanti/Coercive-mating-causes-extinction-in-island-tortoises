@@ -67,9 +67,9 @@ A[11,18]<-sr*fecundity*s0f
 A[11,19]<-sr*fecundity*s0f
 A[11,20]<-sr*fecundity*s0f
 
-stable.stage(A)
+stable.stage(A)  #Calculates the stable age distribution (proportion of individuals in each age class) if the population grows or declines without external changes.
 
-N<-c(rep(0,9),836,rep(0,9),38) #initial population sizes
+N<-c(rep(0,9),836,rep(0,9),38) #initial population sizes (male and female, respectively)
 
 Z<-pop.projection(A,N,iterations=100)
 
